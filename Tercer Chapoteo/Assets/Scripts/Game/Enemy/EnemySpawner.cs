@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     public static EnemySpawner instance;
     private float elapsedGeneration = 0f;
-    private float totalGeneration = 5f;
+    private float totalGeneration = 2.5f;
 
     private float minX, maxX;
     void Awake()

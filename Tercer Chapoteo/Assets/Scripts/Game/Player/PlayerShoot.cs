@@ -20,6 +20,7 @@ public class PlayerShoot : Shooter
             //float height = rt.rect.width;
             float height = gameObject.GetComponent<BoxCollider2D>().bounds.size.y * 0.75f;
             temp.y += height;
+            SoundController.instance.playSound(SoundController.Sounds.PLAYER_FIRE);
             CreateBullet(temp, velocityBullet);
         }
     }
