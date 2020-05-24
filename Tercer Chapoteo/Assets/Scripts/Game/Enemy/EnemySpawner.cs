@@ -44,6 +44,30 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    void killAll()
+    {
+        int score = 12;
+        int totalKills = 0;
+        if (poolEnemies.Count > 0)
+        {
+            DamageEnemy damage;
+            Renderer renderer;
+            foreach (GameObject item in poolEnemies)
+            {
+                renderer = item.GetComponent<Renderer>();
+                if (item.activeInHierarchy && renderer.isVisible)
+                {
+                    damage = item.GetComponent<DamageEnemy>();
+                    damage.kill();
+                }
+            }
+        }
+        if (totalKills > 0)
+        {
+            HudController.instance.UpdateScore(totalKills * score);
+        }
+    }
+
     void generateEnemy()
     {
         int index = 0;

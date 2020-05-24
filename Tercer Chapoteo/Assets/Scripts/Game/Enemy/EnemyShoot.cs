@@ -8,6 +8,7 @@ public class EnemyShoot : Shooter
     {
         totalShooter = 1.0f;
         poolBullets = new List<GameObject>();
+        sound = SoundController.Sounds.ENEMY_FIRE;
     }
 
     override protected void generateBullet()
@@ -16,6 +17,7 @@ public class EnemyShoot : Shooter
         Vector3 temp = transform.position;
         float height = gameObject.GetComponent<BoxCollider2D>().bounds.size.y * 0.75f;
         temp.y -= height;
+        playSound();
         CreateBullet(temp, velocityBullet);
     }
 }

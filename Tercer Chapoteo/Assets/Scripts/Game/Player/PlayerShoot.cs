@@ -8,6 +8,7 @@ public class PlayerShoot : Shooter
     {
         totalShooter = 0.2f;
         poolBullets = new List<GameObject>();
+        sound = SoundController.Sounds.PLAYER_FIRE;
     }
     override protected void generateBullet()
     {
@@ -20,7 +21,7 @@ public class PlayerShoot : Shooter
             //float height = rt.rect.width;
             float height = gameObject.GetComponent<BoxCollider2D>().bounds.size.y * 0.75f;
             temp.y += height;
-            SoundController.instance.playSound(SoundController.Sounds.PLAYER_FIRE);
+            playSound();
             CreateBullet(temp, velocityBullet);
         }
     }

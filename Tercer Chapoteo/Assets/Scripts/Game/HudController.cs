@@ -28,7 +28,7 @@ public class HudController : MonoBehaviour
         updateTime();
     }
 
-    public void updateScreen(int _score)
+    public void UpdateScore(int _score)
     {
         score += _score;
         txtScore.text = score.ToString();

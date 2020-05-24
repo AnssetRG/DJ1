@@ -13,6 +13,7 @@ public class Shooter : MonoBehaviour
     protected GameObject prefabProyectile;
     [SerializeField]
     protected Vector2 velocityBullet;
+    protected SoundController.Sounds sound;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +33,12 @@ public class Shooter : MonoBehaviour
     virtual protected void generateBullet()
     {
         //print("Hola desde Shooter");
+    }
+
+    protected void playSound()
+    {
+        if (sound == null) print("NO HAY SONIDO");
+        else SoundController.instance.playSound(sound);
     }
 
     protected void CreateBullet(Vector3 origin_position, Vector2 velocity)
